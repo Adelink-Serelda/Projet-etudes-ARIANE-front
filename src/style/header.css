@@ -1,0 +1,155 @@
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: auto;
+  display: block;
+  align-items: start;
+  justify-content: center;
+  padding: 1rem 1rem 0 1rem;
+  background-color: var(--background-primary);
+  /* border-bottom: solid 2px var(--delimit-border-light); */
+  /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.barre-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: var(--text-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.logo-container {
+  width: 48px;
+  height: 48px;
+  margin: 0 10px;
+  padding: 0;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.titre-page {
+  display: none;
+}
+
+.recherche {
+  border-radius: 20px;
+  border: solid 1px var(--dark-green);
+  display: flex;
+  background-color: white;
+  flex: 1;
+  max-width: 400px;
+}
+
+.bi {
+  margin: 0.5em 0.9em 0.5em 0.5em;
+  color: var(--text-dark);
+}
+
+.recherche input {
+  background-color: white;
+  border-radius: 20px;
+  border: none;
+  color: var(--dark-green);
+}
+
+.burger {
+  margin: 0 10px;
+}
+
+.burger-btn {
+  all: unset;
+}
+
+.burger .bi {
+  color: var(--dark-green);
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-cpt {
+  display: none;
+}
+
+.entete {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0.2rem 0 0.5rem 0;
+  width: 100%;
+  border-bottom: solid 2px var(--delimit-border-light);
+}
+
+@media (min-width: 576px) {
+  .header-wrapper {
+    position: relative;
+    border-bottom: solid 2px var(--delimit-border-light);
+  }
+
+  .barre-navigation {
+    justify-content: space-between;
+    padding-left: 80px;
+    align-items: center;
+  }
+
+  .entete {
+    display: none;
+  }
+
+  .titre-page {
+    display: block;
+    margin: 10px 10px 0 0px;
+    font-weight: bold;
+  }
+
+  .logo-container {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .barre-navigation {
+    padding-left: 120px;
+  }
+
+  .titre-page {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .barre-navigation {
+    padding-left: 180px;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .menu-cpt {
+    display: block;
+    position: relative;
+  }
+
+  .menu-cpt:hover .submenu-wrapper,
+  .menu-cpt.open .submenu-wrapper {
+    display: block;
+  }
+
+  .menu-cpt-btn {
+    display: flex;
+    border: none;
+    background-color: var(--background-primary);
+    align-items: baseline;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+  }
+}

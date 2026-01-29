@@ -1,0 +1,90 @@
+.collection {
+  margin-top: 5rem;
+  color: var(--text-dark);
+}
+
+.bouton-filtre-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.bouton-filtre {
+  display: flex;
+  align-items: baseline;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid var(--dark-green);
+  border-radius: 20px;
+  color: var(--dark-green);
+}
+
+.bouton-filtre i {
+  font-size: 1.3rem;
+  margin: 0 6px;
+  padding: 0;
+  color: var(--dark-green);
+}
+
+.bouton-filtre p {
+  margin: 0;
+  padding: 0;
+}
+
+.collection-details {
+  margin: 0 20px;
+}
+
+.collection-details h1 {
+  font-size: 1.2rem;
+}
+
+.collection-details h2 {
+  font-size: 1rem;
+}
+
+.collection-wrapper {
+  margin: 20px;
+}
+
+.collection-item {
+  display: flex;
+  border-bottom: solid 1px var(--dark-green);
+  margin-bottom: 25px;
+}
+
+.couv-collection {
+  width: 70px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.couv-collection img {
+  width: 100%;
+}
+
+.description-collection {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.collection-avancee h3 {
+  font-size: 1rem;
+}
+
+.collection-avancee p {
+  border-bottom: solid 6px var(--light-green-primary);
+  padding-bottom: 6px;
+}
+
+.icone-chevron i {
+  font-size: 1.2rem;
+  margin: 0;
+}

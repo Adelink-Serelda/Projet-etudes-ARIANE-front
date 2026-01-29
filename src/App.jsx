@@ -1,0 +1,28 @@
+import Header from "./components/Header";
+import SideBarre from "./components/SideBarre";
+import Nouveautes from "./pages/Nouveautes";
+import { Route, Routes } from "react-router-dom";
+import Suggestions from "./pages/Suggestions";
+import Collection from "./pages/Collection";
+import Fil from "./pages/Fil";
+import Recherche from "./pages/Recherche";
+import VueDetail from "./pages/VueDetail";
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Nouveautes />} />
+        <Route path="/suggestions" element={<Suggestions />} />
+        <Route path="/collection" element={<Collection />} />
+        <Route path="/fil" element={<Fil />} />
+        <Route path="/recherche" element={<Recherche />} />
+        <Route path="/vuedetail" element={<VueDetail />} />
+      </Routes>
+      <SideBarre />
+    </div>
+  );
+}
+
+export default App;

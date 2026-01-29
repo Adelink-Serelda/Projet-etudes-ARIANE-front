@@ -1,0 +1,138 @@
+/* Side Barre - Tab Barre*/
+.barre-menu {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  background-color: var(--background-primary);
+  border-top: solid 2px var(--delimit-border-light);
+}
+
+.barre-menu-logo {
+  display: none;
+}
+
+.barre-menu-logo-complet {
+  display: none;
+}
+
+.barre-menu-item {
+  display: block;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+
+.barre-menu-item:hover {
+  background-color: var(--background-secondary);
+  border-radius: 25px;
+  width: 40px;
+  height: 40px;
+}
+
+.barre-menu-item img {
+  width: 30px;
+}
+
+.barre-menu-item span {
+  display: none;
+  text-decoration: none;
+  color: var(--light-green-primary);
+}
+
+@media (min-width: 576px) {
+  .barre-menu {
+    flex-direction: column;
+    padding: 10rem 0;
+    width: 80px;
+    height: 100%;
+    border-right: solid 2px var(--delimit-border-light);
+    position: fixed;
+  }
+
+  .barre-menu-logo {
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    /* height: 17%; */
+    top: 0;
+    left: 0;
+    margin: 10px;
+  }
+
+  .barre-menu::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: -1%;
+    left: 0;
+    width: 100%;
+    height: 17%;
+    background-image: url("/public/img/trame.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 50% 80%, 0% 60%);
+    z-index: 1;
+    opacity: 30%;
+  }
+}
+
+@media (min-width: 768px) {
+  .barre-menu-item span {
+    display: block;
+  }
+
+  .barre-menu {
+    width: 120px;
+  }
+
+  .barre-menu-logo {
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    /* height: 17%; */
+    top: 0;
+    left: 0;
+    margin: 10px auto;
+    text-align: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .barre-menu {
+    width: 180px;
+    justify-content: start;
+    gap: 2.5rem;
+  }
+
+  .barre-menu-logo {
+    display: none;
+  }
+
+  .barre-menu-logo-complet {
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    /* height: 17%; */
+    top: 0;
+    left: 0;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .barre-menu-item .liens {
+    display: flex;
+    gap: 1rem;
+    justify-content: start;
+    align-items: center;
+    padding-left: 1rem;
+  }
+}

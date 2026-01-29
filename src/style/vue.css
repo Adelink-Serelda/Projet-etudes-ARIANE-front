@@ -1,0 +1,53 @@
+.vue-detail {
+  margin-top: 5rem;
+  color: var(--text-dark);
+}
+
+.entete-title {
+  text-align: center;
+}
+
+.entete-title h2 {
+  font-size: 1.2rem;
+}
+
+.vue-wrapper {
+  margin: 20px;
+}
+
+.vue-image {
+  max-width: 380px;
+  margin: 10px auto;
+}
+
+.vue-image img {
+  width: 100%;
+}
+
+.vue-title h1 {
+  font-size: 1.3rem;
+}
+
+.vue-title p {
+  font-size: 0.8rem;
+  line-height: 0.5rem;
+}
+
+.vue-cta {
+  display: flex;
+  margin: 20px auto;
+  justify-content: space-around;
+}
+
+.vue-cta .cta {
+  border: solid 1px;
+  text-decoration: none;
+  color: var(--text-light);
+  background-color: var(--light-green-primary);
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.vue-cta i {
+  margin: 0;
+}
