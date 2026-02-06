@@ -88,3 +88,22 @@
   font-size: 1.2rem;
   margin: 0;
 }
+
+@media (min-width: 576px) {
+  .collection {
+    margin-top: 1rem;
+    margin-left: 95px;
+  }
+}
+
+@media (min-width: 768px) {
+  .collection {
+    margin-left: 135px;
+  }
+}
+
+@media (min-width: 992px) {
+  .collection {
+    margin-left: 195px;
+  }
+}

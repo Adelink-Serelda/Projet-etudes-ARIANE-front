@@ -1,3 +1,22 @@
 .fil {
   margin-top: 5rem;
 }
+
+@media (min-width: 576px) {
+  .fil {
+    margin-top: 1rem;
+    margin-left: 95px;
+  }
+}
+
+@media (min-width: 768px) {
+  .fil {
+    margin-left: 135px;
+  }
+}
+
+@media (min-width: 992px) {
+  .fil {
+    margin-left: 195px;
+  }
+}

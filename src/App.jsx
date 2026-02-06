@@ -7,6 +7,8 @@ import Collection from "./pages/Collection";
 import Fil from "./pages/Fil";
 import Recherche from "./pages/Recherche";
 import VueDetail from "./pages/VueDetail";
+import Login from "./pages/auth/login";
+import Register from "./pages/auth/register";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Nouveautes />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/suggestions" element={<Suggestions />} />
         <Route path="/collection" element={<Collection />} />
         <Route path="/fil" element={<Fil />} />
