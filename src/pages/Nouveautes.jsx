@@ -1,8 +1,22 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../style/nouveautes.css";
+import AJAX from "../utils/ajax";
 
-function Nouveautes(props) {
+function Nouveautes(datas) {
+  // Récupérer les données
+  const [tomes, setTomes] = useState([]);
+  console.log(tomes);
+
+  useEffect(() => {
+    async function fetchDatas() {
+      const datas = await AJAX.get("tomes");
+      setTomes(datas.slice(0, 20));
+    }
+    fetchDatas();
+  }, []);
+
+  //composant
   return (
     <section className="nouveaute">
       <div className="entete">
@@ -15,78 +29,21 @@ function Nouveautes(props) {
         </Link>
       </div>
       <div className="nouveaute-wrapper">
-        <Link to="/vuedetail" className="nouveaute-item">
-          <div className="card">
-            <img src="/img/img-1.jpg" alt="" />
-            <div className="card-contenu">
-              <p className="titre">My Hero Academia</p>
-              <p className="tome">Tome 42</p>
+        {tomes.map((tome) => (
+          <Link
+            to={`/vuedetail/${tome.id}`}
+            className="nouveaute-item"
+            key={tome.id}
+          >
+            <div className="card">
+              <img src={tome.image} alt={tome.titre} />
+              <div className="card-contenu">
+                <p className="titre">{tome.manga.titre}</p>
+                <p className="tome">Tome {tome.numero}</p>
+              </div>
             </div>
-          </div>
-        </Link>
-        <Link className="nouveaute-item">
-          <div className="card">
-            <img src="/img/img-1.jpg" alt="" />
-            <div className="card-contenu">
-              <p className="titre">My Hero Academia</p>
-              <p className="tome">Tome 42</p>
-            </div>
-          </div>
-        </Link>
-        <Link className="nouveaute-item">
-          <div className="card">
-            <img src="/img/img-1.jpg" alt="" />
-            <div className="card-contenu">
-              <p className="titre">My Hero Academia</p>
-              <p className="tome">Tome 42</p>
-            </div>
-          </div>
-        </Link>
-        <Link className="nouveaute-item">
-          <div className="card">
-            <img src="/img/img-1.jpg" alt="" />
-            <div className="card-contenu">
-              <p className="titre">My Hero Academia</p>
-              <p className="tome">Tome 42</p>
-            </div>
-          </div>
-        </Link>
-        <Link className="nouveaute-item">
-          <div className="card">
-            <img src="/img/img-1.jpg" alt="" />
-            <div className="card-contenu">
-              <p className="titre">My Hero Academia</p>
-              <p className="tome">Tome 42</p>
-            </div>
-          </div>
-        </Link>
-        <Link className="nouveaute-item">
-          <div className="card">
-            <img src="/img/img-1.jpg" alt="" />
-            <div className="card-contenu">
-              <p className="titre">My Hero Academia</p>
-              <p className="tome">Tome 42</p>
-            </div>
-          </div>
-        </Link>
-        <Link className="nouveaute-item">
-          <div className="card">
-            <img src="/img/img-1.jpg" alt="" />
-            <div className="card-contenu">
-              <p className="titre">My Hero Academia</p>
-              <p className="tome">Tome 42</p>
-            </div>
-          </div>
-        </Link>
-        <Link className="nouveaute-item">
-          <div className="card">
-            <img src="/img/img-1.jpg" alt="" />
-            <div className="card-contenu">
-              <p className="titre">My Hero Academia</p>
-              <p className="tome">Tome 42</p>
-            </div>
-          </div>
-        </Link>
+          </Link>
+        ))}
       </div>
     </section>
   );

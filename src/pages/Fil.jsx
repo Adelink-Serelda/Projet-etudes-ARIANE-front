@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import "../style/fil.css";
+import AJAX from "../utils/ajax";
+import { useEffect, useState } from "react";
 
-function Fil() {
+function Fil(datas) {
+  const [mangas, setMangas] = useState([]);
+
+  useEffect(() => {
+    async function fetchDatas() {
+      const datas = await AJAX.get("mangas");
+      setMangas(datas);
+    }
+    fetchDatas();
+  }, []);
+
   return (
     <section className="fil">
       <div className="entete">
@@ -35,62 +47,22 @@ function Fil() {
         <h1>42 Tomes à lire</h1>
       </div>
       <div className="collection-wrapper">
-        <div className="collection-item">
-          <div className="couv-collection">
-            <img src="/img/img-1.jpg" alt="" />
-          </div>
-          <div className="description-collection">
-            <div className="collection-avancee">
-              <h3>My Hero Academia</h3>
-              <p>2/42 Tomes (en cours)</p>
+        {mangas.map((manga) => (
+          <div className="collection-item" key={manga.id}>
+            <div className="couv-collection">
+              <img src="/img/img-1.jpg" alt="" />
             </div>
-            <div className="icone-chevron">
-              <i className="bi bi-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-        <div className="collection-item">
-          <div className="couv-collection">
-            <img src="/img/img-1.jpg" alt="" />
-          </div>
-          <div className="description-collection">
-            <div className="collection-avancee">
-              <h3>My Hero Academia</h3>
-              <p>2/42 Tomes (en cours)</p>
-            </div>
-            <div className="icone-chevron">
-              <i className="bi bi-chevron-right"></i>
+            <div className="description-collection">
+              <div className="collection-avancee">
+                <h3>My Hero Academia</h3>
+                <p>2/42 Tomes (en cours)</p>
+              </div>
+              <div className="icone-chevron">
+                <i className="bi bi-chevron-right"></i>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="collection-item">
-          <div className="couv-collection">
-            <img src="/img/img-1.jpg" alt="" />
-          </div>
-          <div className="description-collection">
-            <div className="collection-avancee">
-              <h3>My Hero Academia</h3>
-              <p>2/42 Tomes (en cours)</p>
-            </div>
-            <div className="icone-chevron">
-              <i className="bi bi-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-        <div className="collection-item">
-          <div className="couv-collection">
-            <img src="/img/img-1.jpg" alt="" />
-          </div>
-          <div className="description-collection">
-            <div className="collection-avancee">
-              <h3>My Hero Academia</h3>
-              <p>2/42 Tomes (en cours)</p>
-            </div>
-            <div className="icone-chevron">
-              <i className="bi bi-chevron-right"></i>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

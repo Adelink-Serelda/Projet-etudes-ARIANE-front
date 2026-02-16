@@ -22,7 +22,7 @@ function App() {
         <Route path="/collection" element={<Collection />} />
         <Route path="/fil" element={<Fil />} />
         <Route path="/recherche" element={<Recherche />} />
-        <Route path="/vuedetail" element={<VueDetail />} />
+        <Route path="/vuedetail/:id" element={<VueDetail />} />
       </Routes>
       <SideBarre />
     </div>

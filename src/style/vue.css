@@ -51,3 +51,24 @@
 .vue-cta i {
   margin: 0;
 }
+
+@media (min-width: 576px) {
+  .vue-wrapper {
+    margin: 20px 20px 20px 95px;
+  }
+  .vue-detail {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .vue-wrapper {
+    margin-left: 135px;
+  }
+}
+
+@media (min-width: 992px) {
+  .vue-wrapper {
+    margin-left: 195px;
+  }
+}

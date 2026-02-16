@@ -34,6 +34,11 @@
 }
 
 .card-contenu .titre {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
   font-size: 1rem;
   font-weight: bold;
   color: var(--text-dark);
