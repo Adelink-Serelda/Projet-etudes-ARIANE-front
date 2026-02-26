@@ -73,6 +73,11 @@ button:hover {
   background: #3b7ac4;
 }
 
+.error-msg {
+  margin-top: 0.5rem;
+  color: red;
+}
+
 @media (min-width: 576px) {
   .login {
     margin-top: 6rem;

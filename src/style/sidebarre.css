@@ -74,7 +74,7 @@
     left: 0;
     width: 100%;
     height: 17%;
-    background-image: url("/public/img/trame.png");
+    background-image: url("/public/img/illu_intro/trame.png");
     background-size: cover;
     background-repeat: no-repeat;
     clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 50% 80%, 0% 60%);

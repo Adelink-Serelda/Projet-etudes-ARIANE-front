@@ -14,7 +14,7 @@ function Header() {
           <div className="logo-container">
             <img
               className="logo"
-              src="/img/logo_lettres_64.svg"
+              src="/img/logo-ariane/logo_lettres_64.svg"
               alt="logo Ariane"
             />
           </div>

@@ -1,0 +1,178 @@
+/* Page accueil et login */
+
+.intro-cover {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: transform 0.6s ease-in-out;
+}
+
+.intro-cover.open {
+  transform: translateY(-35%);
+}
+
+.intro-cover.close {
+  transform: translateY(0);
+}
+
+.trame-cover {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0%, 100% 80%, 50% 90%, 0 80%);
+}
+
+.logo-cover,
+.intro-cover h1 {
+  position: relative;
+}
+
+.logo-cover {
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.chevron {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 35px;
+}
+
+.intro-content.show {
+  display: block;
+}
+
+.intro-content.hide {
+  display: none;
+}
+
+.description {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#fil-background {
+  position: absolute;
+  opacity: 30%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  /* max-width: 500px; */
+  pointer-events: none;
+}
+
+.btn-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 3rem;
+  width: 80%;
+}
+
+.btn-log,
+.btn-reg {
+  border-radius: 10px;
+  background-color: var(--light-green-primary);
+  color: var(--text-light);
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1.2rem;
+}
+
+/* pages explication application - Bienvenue */
+
+.head-logo {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.head-logo img {
+  width: 45%;
+}
+
+.contenu-page {
+  margin: 0 2rem;
+}
+
+.contenu-page h1 {
+  font-size: 1.5rem;
+}
+
+.contenu-page p {
+  margin-bottom: 3rem;
+}
+
+.illu-container {
+  width: 100%;
+  overflow: hidden;
+  height: 300px;
+  margin: 1rem auto;
+}
+
+.fil-transparence {
+  position: absolute;
+  opacity: 17%;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+  width: 150%;
+  /* max-width: 500px; */
+  pointer-events: none;
+}
+
+.contenu-illu {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.btn-pagination {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.dots {
+  display: flex;
+  gap: 1rem;
+}
+
+.dots img {
+  width: 25px;
+  cursor: pointer;
+}
+
+#page-actuelle {
+  cursor: initial;
+}
+
+.btn-suivant {
+  border-radius: 10px;
+  background-color: var(--light-green-primary);
+  color: var(--text-light);
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1.2rem;
+}
