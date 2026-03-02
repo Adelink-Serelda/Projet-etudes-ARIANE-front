@@ -10,9 +10,10 @@ import Register from "./pages/auth/register";
 import HomeIntro from "./pages/intro/HomeIntro";
 import IntroLayout from "./layouts/IntroLayout";
 import ContenuLayout from "./layouts/ContenuLayout";
-import HomeSlide1 from "./pages/intro/HomeSlide1";
-import HomeSlide2 from "./pages/intro/HomeSlide2";
-import HomeSlide3 from "./pages/intro/HomeSlide3";
+import HomeSlide1 from "./pages/intro/components/HomeSlide1";
+import HomeSlide2 from "./pages/intro/components/HomeSlide2";
+import HomeSlide3 from "./pages/intro/components/HomeSlide3";
+import HomeSlides from "./pages/intro/HomeSlides";
 
 function App() {
   return (
@@ -30,25 +31,25 @@ function App() {
         <Route
           path="/home-slide-1"
           element={
-            <IntroLayout>
+            <HomeSlides>
               <HomeSlide1 />
-            </IntroLayout>
+            </HomeSlides>
           }
         />
         <Route
           path="/home-slide-2"
           element={
-            <IntroLayout>
+            <HomeSlides>
               <HomeSlide2 />
-            </IntroLayout>
+            </HomeSlides>
           }
         />
         <Route
           path="/home-slide-3"
           element={
-            <IntroLayout>
+            <HomeSlides>
               <HomeSlide3 />
-            </IntroLayout>
+            </HomeSlides>
           }
         />
         <Route

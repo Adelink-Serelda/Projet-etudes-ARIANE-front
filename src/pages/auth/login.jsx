@@ -22,7 +22,7 @@ export default function Login() {
         password,
       });
       localStorage.setItem("token", res.token);
-      navigate("/nouveautes");
+      navigate("/home-slide-1");
     } catch (err) {
       console.error(err);
       alert("Identifiants incorrects");

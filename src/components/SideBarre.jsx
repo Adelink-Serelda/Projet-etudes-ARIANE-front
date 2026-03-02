@@ -23,7 +23,7 @@ function SideBarre(props) {
           </Link>
         </div>
         <div className="barre-menu-item">
-          <Link to="/" className="liens">
+          <Link to="/nouveautes" className="liens">
             <img
               src="/img/picto-ariane/house-door-fill.svg"
               alt="icône maison accueil"

@@ -78,7 +78,7 @@ button:hover {
   color: red;
 }
 
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
   .login {
     margin-top: 6rem;
   }
@@ -104,5 +104,5 @@ button:hover {
   .login,
   .register {
     margin-left: 195px;
-  }
-}
+  } 
+}*/
