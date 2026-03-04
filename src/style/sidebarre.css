@@ -15,10 +15,15 @@
 
 .barre-menu-logo {
   display: none;
+  position: relative;
+  z-index: 10;
 }
 
 .barre-menu-logo-complet {
   display: none;
+  position: relative;
+  padding-top: 0.5rem;
+  z-index: 10;
 }
 
 .barre-menu-item {
@@ -26,13 +31,6 @@
   align-items: center;
   text-align: center;
   padding: 5px;
-}
-
-.barre-menu-item:hover {
-  background-color: var(--background-secondary);
-  border-radius: 25px;
-  width: 40px;
-  height: 40px;
 }
 
 .barre-menu-item img {
@@ -43,6 +41,25 @@
   display: none;
   text-decoration: none;
   color: var(--light-green-primary);
+}
+
+.liens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.1s ease;
+}
+
+.liens:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--light-green-primary) 20%,
+    transparent
+  );
 }
 
 @media (min-width: 576px) {

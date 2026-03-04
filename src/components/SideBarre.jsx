@@ -7,7 +7,7 @@ function SideBarre(props) {
     <div>
       <nav className="barre-menu">
         <div className="barre-menu-logo">
-          <Link to="#" className="liens">
+          <Link to="/nouveautes">
             <img
               src="/img/logo-ariane/logo_lettres_64.svg"
               alt="Logo Ariane lettres"
@@ -15,7 +15,7 @@ function SideBarre(props) {
           </Link>
         </div>
         <div className="barre-menu-logo-complet">
-          <Link to="#" className="liens">
+          <Link to="/nouveautes">
             <img
               src="/img/logo-ariane/logo_Ariane_complet_120.svg"
               alt="Logo Ariane"

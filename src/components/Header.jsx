@@ -3,10 +3,12 @@ import "../style/header.css";
 import { useEffect, useState } from "react";
 import SubMenu from "./SubMenu";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("USE EFFECT LANCE");
@@ -29,6 +31,7 @@ function Header() {
               className="logo"
               src="/img/logo-ariane/logo_lettres_64.svg"
               alt="logo Ariane"
+              onClick={() => navigate("/nouveautes")}
             />
           </div>
           <div className="titre-page">

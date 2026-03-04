@@ -10,8 +10,9 @@ function Nouveautes(datas) {
 
   useEffect(() => {
     async function fetchDatas() {
-      const datas = await AJAX.get("tomes");
-      setTomes(datas.slice(0, 20));
+      // const datas = await AJAX.get("tomes"); >> Pour utiliser mysql
+      const datas = await AJAX.get("catalogue");
+      setTomes(datas);
     }
     fetchDatas();
   }, []);
@@ -28,22 +29,24 @@ function Nouveautes(datas) {
           <i className="bi bi-chevron-right"></i>
         </Link>
       </div>
-      <div className="nouveaute-wrapper">
-        {tomes.map((tome) => (
-          <Link
-            to={`/vuedetail/${tome.id}`}
-            className="nouveaute-item"
-            key={tome.id}
-          >
-            <div className="card">
-              <img src={tome.image} alt={tome.titre} />
-              <div className="card-contenu">
-                <p className="titre">{tome.manga.titre}</p>
-                <p className="tome">Tome {tome.numero}</p>
+      <div className="nouveaute-container">
+        <div className="nouveaute-wrapper">
+          {tomes.map((tome) => (
+            <Link
+              to={`/vuedetail/${tome.id}`}
+              className="nouveaute-item"
+              key={tome.id}
+            >
+              <div className="card">
+                <img src={tome.image} alt={tome.sousTitre} />
+                <div className="card-contenu">
+                  <p className="titre">{tome.manga.titre}</p>
+                  <p className="tome">Tome {tome.numero}</p>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

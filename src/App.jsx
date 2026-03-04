@@ -32,25 +32,31 @@ function App() {
         <Route
           path="/home-slide-1"
           element={
-            <HomeSlides>
-              <HomeSlide1 />
-            </HomeSlides>
+            <PrivateRoute>
+              <HomeSlides>
+                <HomeSlide1 />
+              </HomeSlides>
+            </PrivateRoute>
           }
         />
         <Route
           path="/home-slide-2"
           element={
-            <HomeSlides>
-              <HomeSlide2 />
-            </HomeSlides>
+            <PrivateRoute>
+              <HomeSlides>
+                <HomeSlide2 />
+              </HomeSlides>
+            </PrivateRoute>
           }
         />
         <Route
           path="/home-slide-3"
           element={
-            <HomeSlides>
-              <HomeSlide3 />
-            </HomeSlides>
+            <PrivateRoute>
+              <HomeSlides>
+                <HomeSlide3 />
+              </HomeSlides>
+            </PrivateRoute>
           }
         />
         <Route
@@ -66,41 +72,51 @@ function App() {
         <Route
           path="/suggestions"
           element={
-            <ContenuLayout>
-              <Suggestions />
-            </ContenuLayout>
+            <PrivateRoute>
+              <ContenuLayout>
+                <Suggestions />
+              </ContenuLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/collection"
           element={
-            <ContenuLayout>
-              <Collection />
-            </ContenuLayout>
+            <PrivateRoute>
+              <ContenuLayout>
+                <Collection />
+              </ContenuLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/fil"
           element={
-            <ContenuLayout>
-              <Fil />
-            </ContenuLayout>
+            <PrivateRoute>
+              <ContenuLayout>
+                <Fil />
+              </ContenuLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/recherche"
           element={
-            <ContenuLayout>
-              <Recherche />
-            </ContenuLayout>
+            <PrivateRoute>
+              <ContenuLayout>
+                <Recherche />
+              </ContenuLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/vuedetail/:id"
           element={
-            <ContenuLayout>
-              <VueDetail />
-            </ContenuLayout>
+            <PrivateRoute>
+              <ContenuLayout>
+                <VueDetail />
+              </ContenuLayout>
+            </PrivateRoute>
           }
         />
         <Route

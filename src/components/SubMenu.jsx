@@ -1,8 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../style/submenu.css";
+import { logout } from "../utils/authUtils";
+import { useNavigate } from "react-router-dom";
 
 function SubMenu({ onClose }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <>
       <div className="submenu-wrapper">
@@ -61,7 +70,9 @@ function SubMenu({ onClose }) {
           </ul>
         </div>
         <div className="submenu-cta">
-          <Link to="">Déconnexion</Link>
+          <button className="btn-logout" onClick={handleLogout}>
+            Déconnexion
+          </button>
         </div>
       </div>
     </>

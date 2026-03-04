@@ -62,7 +62,10 @@
   background-color: var(--light-green-primary);
 }
 
-.submenu-cta a {
+.submenu-cta .btn-logout {
+  all: inherit;
+  padding: 0;
   color: var(--text-light);
   font-weight: bold;
+  cursor: pointer;
 }

@@ -1,16 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../style/vue.css";
+import { useState, useEffect } from "react";
+import AJAX from "../utils/ajax.js";
 
 function VueDetail() {
+  const { id } = useParams();
+  const [tome, setTome] = useState(null);
+
+  useEffect(() => {
+    async function fetchTome() {
+      const data = await AJAX.get(`catalogue/${id}`);
+      setTome(data);
+    }
+    fetchTome();
+  }, [id]);
+
+  if (!tome) return <p>Chargement ...</p>;
+
   return (
     <section className="vue-detail">
       <div className="entete">
         <Link to="#">
-          <i className="bi bi-chevron-left">41</i>
+          <i className="bi bi-chevron-left">{tome.numero}</i>
         </Link>
         <div className="entete-title">
-          <h1 className="entete-titre">My Hero Academia</h1>
-          <h2>Tome 42</h2>
+          <h1 className="entete-titre">{tome.manga.titre}</h1>
+          <h2>Tome {tome.numero}</h2>
         </div>
         <Link to="#">
           <i className="bi bi-chevron-right"></i>
@@ -18,11 +33,11 @@ function VueDetail() {
       </div>
       <div className="vue-wrapper">
         <div className="vue-image">
-          <img src="/img/img-1.jpg" alt="" />
+          <img src={tome.image} alt="" />
         </div>
         <div className="vue-title">
-          <h1>My Hero Academia</h1>
-          <p>Tome 42</p>
+          <h1>{tome.manga.titre}</h1>
+          <p>Tome {tome.numero}</p>
         </div>
         <div className="vue-cta">
           <Link className="cta">
@@ -37,11 +52,7 @@ function VueDetail() {
         </div>
         <div className="vue-note">Avis</div>
         <div className="vue-resume">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque modi
-            aut illo id vero ea beatae qui iure assumenda fuga aliquam eum,
-            excepturi autem ut nemo veritatis vel esse alias.
-          </p>
+          <p>{tome.synopsis}</p>
         </div>
       </div>
     </section>
