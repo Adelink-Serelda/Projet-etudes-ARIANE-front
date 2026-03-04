@@ -1,10 +1,23 @@
 // import { Link } from "react-router-dom";
 import "../style/header.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SubMenu from "./SubMenu";
+import { jwtDecode } from "jwt-decode";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    console.log("USE EFFECT LANCE");
+    const token = localStorage.getItem("token");
+    console.log("TOKEN BRUT =", token);
+    if (!token) return;
+
+    const decoded = jwtDecode(token);
+    console.log("TOKEN DECODED =", decoded);
+    setUser(decoded);
+  }, []);
 
   return (
     <div>
@@ -49,7 +62,7 @@ function Header() {
               // onClick={() => setOpenMenu((v) => !v)}
             >
               <i className="bi bi-person-circle"></i>
-              <p>Compte</p>
+              {user && <p>{user.firstName}</p>}
             </button>
             {openMenu && <SubMenu onClose={() => setOpenMenu(false)} />}
           </div>

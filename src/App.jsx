@@ -1,5 +1,6 @@
 import Nouveautes from "./pages/Nouveautes";
 import { Route, Routes } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
 import Suggestions from "./pages/Suggestions";
 import Collection from "./pages/Collection";
 import Fil from "./pages/Fil";
@@ -55,9 +56,11 @@ function App() {
         <Route
           path="/nouveautes"
           element={
-            <ContenuLayout>
-              <Nouveautes />
-            </ContenuLayout>
+            <PrivateRoute>
+              <ContenuLayout>
+                <Nouveautes />
+              </ContenuLayout>
+            </PrivateRoute>
           }
         />
         <Route
