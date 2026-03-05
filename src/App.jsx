@@ -110,7 +110,7 @@ function App() {
           }
         />
         <Route
-          path="/vuedetail/:id"
+          path="/vuedetail/:manga/:numero"
           element={
             <PrivateRoute>
               <ContenuLayout>

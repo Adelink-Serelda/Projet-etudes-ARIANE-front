@@ -1,14 +1,40 @@
 .vue-detail {
-  margin-top: 5rem;
+  margin: 5rem 0;
   color: var(--text-dark);
+}
+
+.entete {
+  display: flex;
+  align-items: flex-start;
 }
 
 .entete-title {
   text-align: center;
 }
 
+.entete-title h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
 .entete-title h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chevron-nav {
+  width: 25px;
+}
+
+.tome-nav {
+  text-decoration: none;
+  color: var(--text-dark);
 }
 
 .vue-wrapper {

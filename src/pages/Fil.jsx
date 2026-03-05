@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../style/fil.css";
 import AJAX from "../utils/ajax";
 import { useEffect, useState } from "react";
