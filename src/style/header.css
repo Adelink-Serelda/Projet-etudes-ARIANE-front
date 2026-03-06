@@ -38,6 +38,7 @@
 
 .titre-page {
   display: none;
+  text-transform: capitalize;
 }
 
 .recherche {
@@ -109,6 +110,7 @@
     display: block;
     margin: 10px 10px 0 0px;
     font-weight: bold;
+    font-size: 1.2rem;
   }
 
   .logo-container {
@@ -119,10 +121,6 @@
 @media (min-width: 768px) {
   .barre-navigation {
     padding-left: 120px;
-  }
-
-  .titre-page {
-    font-size: 1.2rem;
   }
 }
 

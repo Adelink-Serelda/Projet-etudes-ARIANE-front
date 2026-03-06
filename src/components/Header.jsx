@@ -3,23 +3,30 @@ import "../style/header.css";
 import { useEffect, useState } from "react";
 import SubMenu from "./SubMenu";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  let title = "";
+  const { manga } = useParams();
 
   useEffect(() => {
-    console.log("USE EFFECT LANCE");
     const token = localStorage.getItem("token");
-    console.log("TOKEN BRUT =", token);
     if (!token) return;
 
     const decoded = jwtDecode(token);
-    console.log("TOKEN DECODED =", decoded);
     setUser(decoded);
   }, []);
+
+  if (location.pathname === "/nouveautes") title = "Nouveautés";
+  else if (location.pathname === "/collection") title = "Collection";
+  else if (location.pathname === "/fil") title = "Fil d'Ariane";
+  else if (location.pathname === "/suggestions") title = "Suggestions du jour";
+  else if (location.pathname.startsWith("/vuedetail"))
+    title = manga || "Détails";
 
   return (
     <div>
@@ -35,7 +42,7 @@ function Header() {
             />
           </div>
           <div className="titre-page">
-            <p>Nouveautés</p>
+            <p>{title}</p>
           </div>
           <div className="recherche">
             <i className="bi bi-search"></i>

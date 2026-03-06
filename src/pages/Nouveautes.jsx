@@ -33,7 +33,7 @@ function Nouveautes(datas) {
         <div className="nouveaute-wrapper">
           {tomes.map((tome) => (
             <Link
-              to={`/vuedetail/${tome.manga.id}/${tome.numero}`}
+              to={`/vuedetail/${tome.manga.mangaId}/${tome.numero}`}
               className="nouveaute-item"
               key={tome.id}
             >

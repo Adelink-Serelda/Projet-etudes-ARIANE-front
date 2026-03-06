@@ -1,11 +1,15 @@
+.entete-desktop {
+  display: none;
+}
+
 .vue-detail {
-  margin: 5rem 0;
+  margin: 5rem 0 7rem 0;
   color: var(--text-dark);
 }
 
-.entete {
-  display: flex;
-  align-items: flex-start;
+.vue-detail .entete {
+  justify-content: space-around;
+  align-items: start;
 }
 
 .entete-title {
@@ -38,16 +42,20 @@
 }
 
 .vue-wrapper {
-  margin: 20px;
+  max-width: 275px;
+  margin: 10px auto;
 }
 
 .vue-image {
-  max-width: 380px;
-  margin: 10px auto;
+  max-width: 100%;
 }
 
 .vue-image img {
   width: 100%;
+}
+
+.vue-title {
+  margin-top: 0.7rem;
 }
 
 .vue-title h1 {
@@ -56,45 +64,172 @@
 
 .vue-title p {
   font-size: 0.8rem;
-  line-height: 0.5rem;
+  line-height: 0.1rem;
+  font-style: italic;
 }
 
 .vue-cta {
   display: flex;
   margin: 20px auto;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.vue-cta .cta {
-  border: solid 1px;
+.vue-cta .cta-ajout {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: var(--text-light);
   background-color: var(--light-green-primary);
-  padding: 2px 10px;
-  border-radius: 20px;
+  padding: 0 10px;
+  border-radius: 30px;
 }
 
-.vue-cta i {
+.vue-cta .cta-ajout img,
+.vue-cta .cta-ajout p {
+  margin: 5px 10px 5px 0;
+}
+
+.vue-cta .cta {
+  text-decoration: none;
+  color: var(--text-light);
+  background-color: var(--light-green-primary);
+  padding: 2px 2px;
+  border-radius: 50%;
+}
+
+.vue-cta img {
+  padding: 4px;
+  margin: 7px;
+  width: 30px;
+}
+
+.cta-desktop {
+  display: none;
+}
+
+.vue-note {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  border: solid 1px;
+  margin: 1rem 0;
+  padding: 0.8rem 0;
+  background-color: rgb(211, 210, 210);
+  cursor: pointer;
+}
+
+.vue-note p {
   margin: 0;
 }
 
+.vue-synopsis {
+  width: 100%;
+  text-align: justify;
+}
+
 @media (min-width: 576px) {
-  .vue-wrapper {
-    margin: 20px 20px 20px 95px;
-  }
   .vue-detail {
-    margin-top: 1.5rem;
+    margin: 1.5rem 20px 2rem 95px;
+  }
+  .vue-wrapper {
+    margin: 0 auto;
+  }
+
+  .entete-desktop {
+    display: flex;
+    justify-content: center;
+    padding-left: 95px;
+    width: 100%;
+    background-color: var(--light-green-primary);
+  }
+
+  .tomes-nav-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--light-green-secondary);
+    margin: 10px 0;
+    padding: 0 30px;
+    border-radius: 10px;
+  }
+
+  .entete-desktop a,
+  .entete-desktop p {
+    margin: 0;
+    color: var(--text-light);
+  }
+
+  .entete-desktop p {
+    font-weight: bold;
+    background-color: var(--light-green-primary);
+    padding: 0 30px;
+    border-radius: 10px;
   }
 }
 
 @media (min-width: 768px) {
-  .vue-wrapper {
+  .vue-detail {
     margin-left: 135px;
+  }
+
+  .vue-wrapper {
+    max-width: none;
+  }
+
+  .tome-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .tome-wrapper .vue-image {
+    max-width: 330px;
+  }
+
+  .vue-info-tome {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 2rem;
+  }
+
+  .vue-title h1 {
+    font-size: 2rem;
+  }
+
+  .vue-title p {
+    font-size: 1rem;
+  }
+
+  .vue-cta {
+    justify-content: start;
+    gap: 2rem;
+  }
+
+  .vue-cta .cta {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 30px;
+  }
+
+  .cta-desktop {
+    display: block;
+    margin: 0 8px 0 0;
+  }
+
+  .vue-note {
+    justify-content: flex-start;
+  }
+
+  .vue-note p {
+    margin: 0 20px;
   }
 }
 
 @media (min-width: 992px) {
-  .vue-wrapper {
+  .vue-detail {
     margin-left: 195px;
   }
 }
