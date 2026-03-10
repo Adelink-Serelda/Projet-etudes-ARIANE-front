@@ -4,32 +4,41 @@ import { useState, useEffect } from "react";
 import AJAX from "../utils/ajax.js";
 
 function VueDetail() {
-  const { manga, numero } = useParams();
+  const { slug, numero } = useParams();
+  const manga = slug;
   const num = Number(numero);
   const [tome, setTome] = useState(null);
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
-    async function fetchTome() {
+    async function fetchData() {
       const data = await AJAX.get(`catalogue/${manga}/${numero}`);
-      console.log("verif manga :" + manga);
       setTome(data);
+
+      const mangaId = data.manga.idJson;
+      const tomeNumero = data.numero;
+      const check = await AJAX.get(
+        `collection/check?mangaId=${mangaId}&tomeNumero=${tomeNumero}`,
+        true,
+      );
+      setAdded(check.exists);
     }
-    fetchTome();
+    fetchData();
   }, [manga, numero]);
 
-  async function handleAdd() {
+  async function handleToggle() {
     if (!tome) return;
 
     const mangaId = tome.manga.idJson;
     const tomeNumero = tome.numero;
 
-    const result = await AJAX.post(
-      "collection/add",
-      { mangaId, tomeNumero },
-      true,
-    );
-    console.log("RAW RESULT : ", result);
-    alert(result.message);
+    if (!added) {
+      await AJAX.post("collection/add", { mangaId, tomeNumero }, true);
+      setAdded(true);
+    } else {
+      await AJAX.post("collection/delete", { mangaId, tomeNumero }, true);
+      setAdded(false);
+    }
   }
 
   if (!tome) return <p>Chargement ...</p>;
@@ -47,7 +56,7 @@ function VueDetail() {
           <Link
             to={`/vuedetail/${manga.toLowerCase()}/${num + 1 <= tome.manga.nbTomes ? num + 1 : num}`}
           >
-            {num + 1 < tome.manga.nbTomes ? num + 1 : null}
+            {num < tome.manga.nbTomes ? num + 1 : null}
           </Link>
         </div>
       </div>
@@ -94,9 +103,19 @@ function VueDetail() {
                 <p>Tome {tome.numero}</p>
               </div>
               <div className="vue-cta">
-                <button className="cta-ajout" onClick={handleAdd}>
-                  <img src="/img/svg/plus-white.svg" alt="" />
-                  <p>AJOUTER</p>
+                <button
+                  className={`cta-ajout ${added ? "added" : ""}`}
+                  onClick={handleToggle}
+                >
+                  <img
+                    src={
+                      added
+                        ? "/img/svg/check-white.svg"
+                        : "/img/svg/plus-white.svg"
+                    }
+                    alt="plus pour ajouter check si ajouté"
+                  />
+                  <p>{added ? "COLLEC" : "AJOUTER"}</p>
                 </button>
                 <button className="cta">
                   <img src="/img/svg/heart-white.svg" alt="coeur" />

@@ -11,7 +11,7 @@ function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   let title = "";
-  const { manga } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -26,7 +26,7 @@ function Header() {
   else if (location.pathname === "/fil") title = "Fil d'Ariane";
   else if (location.pathname === "/suggestions") title = "Suggestions du jour";
   else if (location.pathname.startsWith("/vuedetail"))
-    title = manga || "Détails";
+    title = slug || "Détails";
 
   return (
     <div>

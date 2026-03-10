@@ -4,14 +4,19 @@ class AJAX {
 
   // Méthode GET
   static async get(endpoint, useAuth = false) {
-    const headers = {};
+    const headers = {
+      "Content-Type": "application/json",
+    };
 
     if (useAuth) {
       const token = localStorage.getItem("token");
-      if (token) headers["Authorization"] = "Bearer" + token;
+      if (token) headers["x-access-token"] = token;
     }
 
-    const response = await fetch(this.apiURL + endpoint, { headers });
+    const response = await fetch(this.apiURL + endpoint, {
+      method: "GET",
+      headers,
+    });
     const datas = await response.json();
     return datas;
   }

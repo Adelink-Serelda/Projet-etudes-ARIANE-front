@@ -21,11 +21,15 @@ export default function Login() {
         email,
         password,
       });
+      if (!res.token) {
+        setError("Identifiants incorrects");
+        return;
+      }
       localStorage.setItem("token", res.token);
       navigate("/home-slide-1");
     } catch (err) {
       console.error(err);
-      alert("Identifiants incorrects");
+      setError("Erreur survenue");
     }
   };
 

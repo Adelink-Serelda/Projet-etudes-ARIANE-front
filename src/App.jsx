@@ -29,96 +29,80 @@ function App() {
             </IntroLayout>
           }
         />
-        <Route
-          path="/home-slide-1"
-          element={
-            <PrivateRoute>
+        <Route element={<PrivateRoute />}>
+          <Route
+            path="/home-slide-1"
+            element={
               <HomeSlides>
                 <HomeSlide1 />
               </HomeSlides>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/home-slide-2"
-          element={
-            <PrivateRoute>
+            }
+          />
+          <Route
+            path="/home-slide-2"
+            element={
               <HomeSlides>
                 <HomeSlide2 />
               </HomeSlides>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/home-slide-3"
-          element={
-            <PrivateRoute>
+            }
+          />
+          <Route
+            path="/home-slide-3"
+            element={
               <HomeSlides>
                 <HomeSlide3 />
               </HomeSlides>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/nouveautes"
-          element={
-            <PrivateRoute>
+            }
+          />
+          <Route
+            path="/nouveautes"
+            element={
               <ContenuLayout>
                 <Nouveautes />
               </ContenuLayout>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/suggestions"
-          element={
-            <PrivateRoute>
+            }
+          />
+          <Route
+            path="/suggestions"
+            element={
               <ContenuLayout>
                 <Suggestions />
               </ContenuLayout>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/collection"
-          element={
-            <PrivateRoute>
+            }
+          />
+          <Route
+            path="/collection"
+            element={
               <ContenuLayout>
                 <Collection />
               </ContenuLayout>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/fil"
-          element={
-            <PrivateRoute>
+            }
+          />
+          <Route
+            path="/fil"
+            element={
               <ContenuLayout>
                 <Fil />
               </ContenuLayout>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/recherche"
-          element={
-            <PrivateRoute>
+            }
+          />
+          <Route
+            path="/recherche"
+            element={
               <ContenuLayout>
                 <Recherche />
               </ContenuLayout>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/vuedetail/:manga/:numero"
-          element={
-            <PrivateRoute>
+            }
+          />
+          <Route
+            path="/vuedetail/:slug/:numero"
+            element={
               <ContenuLayout>
                 <VueDetail />
               </ContenuLayout>
-            </PrivateRoute>
-          }
-        />
+            }
+          />
+        </Route>
         <Route
           path="/login"
           element={

@@ -6,7 +6,6 @@ import AJAX from "../utils/ajax";
 function Nouveautes(datas) {
   // Récupérer les données
   const [tomes, setTomes] = useState([]);
-  console.log(tomes);
 
   useEffect(() => {
     async function fetchDatas() {
@@ -17,7 +16,6 @@ function Nouveautes(datas) {
     fetchDatas();
   }, []);
 
-  //composant
   return (
     <section className="nouveaute">
       <div className="entete">
@@ -31,11 +29,11 @@ function Nouveautes(datas) {
       </div>
       <div className="nouveaute-container">
         <div className="nouveaute-wrapper">
-          {tomes.map((tome) => (
+          {tomes.map((tome, index) => (
             <Link
-              to={`/vuedetail/${tome.manga.mangaId}/${tome.numero}`}
+              to={`/vuedetail/${tome.manga.slug}/${tome.numero}`}
               className="nouveaute-item"
-              key={tome.id}
+              key={index}
             >
               <div className="card">
                 <img src={tome.image} alt={tome.sousTitre} />
