@@ -3,16 +3,25 @@ import "../style/collection.css";
 import AJAX from "../utils/ajax";
 import { useEffect, useState } from "react";
 
-function Collection(datas) {
+function Collection() {
   const [mangas, setMangas] = useState([]);
+  const [totalTomes, setTotalTomes] = useState();
+  const [totalSeries, setTotalSeries] = useState();
 
   useEffect(() => {
     async function fetchDatas() {
-      const datas = await AJAX.get("mangas");
-      setMangas(datas);
+      const datas = await AJAX.get("collection", true);
+      setMangas(datas.userCollection);
+      setTotalTomes(datas.totalTomes);
+      setTotalSeries(datas.totalSeries);
     }
     fetchDatas();
+    console.log(mangas);
   }, []);
+
+  useEffect(() => {
+    console.log("mangas à jour : ", mangas);
+  }, [mangas]);
 
   return (
     <section className="collection">
@@ -44,19 +53,22 @@ function Collection(datas) {
         </Link>
       </div>
       <div className="collection-details">
-        <h1>1492 TOMES</h1>
-        <h2>465 Séries</h2>
+        <h1>{totalTomes} TOMES</h1>
+        <h2>{totalSeries} Séries</h2>
       </div>
       <div className="collection-wrapper">
-        {mangas.map((manga) => (
-          <div className="collection-item" key={manga.id}>
+        {mangas.map((m) => (
+          <div className="collection-item" key={m.mangaId}>
             <div className="couv-collection">
-              <img src="/img/img-1.jpg" alt="" />
+              <img src={m.tomes[m.tomes.length - 1]?.image} alt={m.titre} />
             </div>
             <div className="description-collection">
               <div className="collection-avancee">
-                <h3>My Hero Academia</h3>
-                <p>41/42 Tomes (en cours)</p>
+                <h3>{m.titre}</h3>
+                <p>
+                  {m.tomes.length}/{m.nbTomesTotal} Tomes{" "}
+                  {m.termine ? "" : "(en cours)"}
+                </p>
               </div>
               <div className="icone-chevron">
                 <i className="bi bi-chevron-right"></i>

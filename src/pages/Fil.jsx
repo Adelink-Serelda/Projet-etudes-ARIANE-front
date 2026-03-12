@@ -3,12 +3,15 @@ import "../style/fil.css";
 import AJAX from "../utils/ajax";
 import { useEffect, useState } from "react";
 
-function Fil(datas) {
+function Fil() {
   const [mangas, setMangas] = useState([]);
+  const [totalTomes, setTotalTomes] = useState();
+  const [totalSeries, setTotalSeries] = useState();
 
   useEffect(() => {
     async function fetchDatas() {
-      const datas = await AJAX.get("mangas");
+      const datas = await AJAX.get("fil", true);
+      setTotalTomes(datas.totalTomes);
       setMangas(datas);
     }
     fetchDatas();
@@ -44,9 +47,9 @@ function Fil(datas) {
         </Link>
       </div>
       <div className="collection-details">
-        <h1>42 Tomes à lire</h1>
+        <h1>{totalTomes} Tomes à lire</h1>
       </div>
-      <div className="collection-wrapper">
+      {/*  <div className="collection-wrapper">
         {mangas.map((manga) => (
           <div className="collection-item" key={manga.id}>
             <div className="couv-collection">
@@ -63,7 +66,7 @@ function Fil(datas) {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }
