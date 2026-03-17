@@ -4,28 +4,43 @@
 
 .index-info {
   text-align: center;
-  color: black;
+  color: var(--dark-green);
   margin: 50px 0 25px;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: bold;
 }
 
 .suggestions-slider {
-  max-width: 150px;
-  aspect-ratio: 2/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid var(--delimit-border-light);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* aspect-ratio: 2/3; */
   margin: 0 auto;
   position: relative;
+  color: var(--dark-green);
+  background-color: white;
 }
 
 .manga-img {
-  position: absolute;
+  position: static;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
 .navigation-button {
-  position: absolute;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -33,7 +48,6 @@
   border: 2px solid black;
   top: 50%;
   transform: translateY(-50%);
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +67,31 @@
 
 .manga-titre {
   text-align: center;
-  margin: 50px 0 20px;
-  font-size: 18px;
+  margin: 0.5rem 0 0 0;
+  font-size: 1.3rem;
   font-weight: 500;
+}
+
+.manga-auteur {
+  margin: 0;
+  font-style: italic;
+}
+
+@media (min-width: 576px) {
+  .suggestions {
+    margin-top: 1rem;
+    margin-left: 90px;
+  }
+}
+
+@media (min-width: 768px) {
+  .suggestions {
+    margin-left: 130px;
+  }
+}
+
+@media (min-width: 992px) {
+  .suggestions {
+    margin-left: 190px;
+  }
 }

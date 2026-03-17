@@ -15,6 +15,7 @@ import HomeSlide1 from "./pages/intro/components/HomeSlide1";
 import HomeSlide2 from "./pages/intro/components/HomeSlide2";
 import HomeSlide3 from "./pages/intro/components/HomeSlide3";
 import HomeSlides from "./pages/intro/HomeSlides";
+import VueManga from "./pages/VueManga";
 
 function App() {
   return (
@@ -99,6 +100,14 @@ function App() {
             element={
               <ContenuLayout>
                 <VueDetail />
+              </ContenuLayout>
+            }
+          />
+          <Route
+            path="/:slug"
+            element={
+              <ContenuLayout>
+                <VueManga />
               </ContenuLayout>
             }
           />

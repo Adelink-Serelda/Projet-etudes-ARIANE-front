@@ -1,21 +1,38 @@
-import { useState } from "react";
-import sliderData from "../data/sliderData";
+import { useState, useEffect } from "react";
+import AJAX from "../utils/ajax";
 import "../style/suggestions.css";
 import { Link } from "react-router-dom";
 
 export default function Suggestions() {
-  const [sliderIndex, setSliderIndex] = useState(1);
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const [mangas, setMangas] = useState([]);
+
+  const totalSlides = mangas.length;
+
+  useEffect(() => {
+    async function fetchDatas() {
+      const datas = await AJAX.get("suggestion", true);
+      setMangas(datas);
+      console.log("datas_brutes : ", datas);
+    }
+    fetchDatas();
+  }, []);
+
+  useEffect(() => {
+    if (sliderIndex >= mangas.length) {
+      setSliderIndex(0);
+    }
+  }, [mangas, sliderIndex]);
 
   function toggleImage(indexPayLoad) {
-    let newState;
-    if (indexPayLoad + sliderIndex > sliderData.length) {
-      newState = 1;
-    } else if (indexPayLoad + sliderIndex < 1) {
-      newState = sliderData.length;
-    } else {
-      newState = indexPayLoad + sliderIndex;
-    }
-    setSliderIndex(newState);
+    if (totalSlides === 0) return;
+
+    setSliderIndex((current) => {
+      const nextIndex = current + indexPayLoad;
+      if (nextIndex >= totalSlides) return 0;
+      if (nextIndex < 0) return totalSlides - 1;
+      return nextIndex;
+    });
   }
 
   return (
@@ -31,30 +48,33 @@ export default function Suggestions() {
       </div>
       <div className="suggestion-wrapper">
         <p className="index-info">
-          {sliderIndex} / {sliderData.length}
+          {totalSlides === 0 ? "0 / 0" : `${sliderIndex + 1} / ${totalSlides}`}
         </p>
         <div className="suggestions-slider">
           <img
-            src={`/img/img-${sliderIndex}.jpg`}
-            alt="couv MHA 42"
+            src={mangas[sliderIndex]?.cover || "/img/img-1.jpg"}
+            alt={mangas[sliderIndex]?.titre || "couv manga"}
             className="manga-img"
           />
+          <p className="manga-titre">{mangas[sliderIndex]?.titre || ""}</p>
+          <p className="manga-auteur">{mangas[sliderIndex]?.auteur || ""}</p>
+        </div>
+        <div className="navigation-buttons">
           <button
             onClick={() => toggleImage(-1)}
             className="navigation-button prev-button"
+            disabled={totalSlides <= 1}
           >
-            PREV
+            <img src="/img/svg/chevron-left.svg" alt="suggestion précédente" />
           </button>
           <button
             onClick={() => toggleImage(1)}
             className="navigation-button next-button"
+            disabled={totalSlides <= 1}
           >
-            NEXT
+            <img src="/img/svg/chevron-right.svg" alt="suggestion suivante" />
           </button>
         </div>
-        <p className="manga-titre">
-          {sliderData.find((obj) => obj.id === sliderIndex).description}
-        </p>
       </div>
     </section>
   );

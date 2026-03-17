@@ -2,11 +2,14 @@ import { Link } from "react-router-dom";
 import "../style/collection.css";
 import AJAX from "../utils/ajax";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Collection() {
   const [mangas, setMangas] = useState([]);
+  console.log(mangas);
   const [totalTomes, setTotalTomes] = useState();
   const [totalSeries, setTotalSeries] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchDatas() {
@@ -16,12 +19,7 @@ function Collection() {
       setTotalSeries(datas.totalSeries);
     }
     fetchDatas();
-    console.log(mangas);
   }, []);
-
-  useEffect(() => {
-    console.log("mangas à jour : ", mangas);
-  }, [mangas]);
 
   return (
     <section className="collection">
@@ -58,7 +56,11 @@ function Collection() {
       </div>
       <div className="collection-wrapper">
         {mangas.map((m) => (
-          <div className="collection-item" key={m.mangaId}>
+          <div
+            className="collection-item"
+            key={m.mangaId}
+            onClick={() => navigate(`/${m.slug}`)}
+          >
             <div className="couv-collection">
               <img src={m.tomes[m.tomes.length - 1]?.image} alt={m.titre} />
             </div>

@@ -27,6 +27,8 @@ function Header() {
   else if (location.pathname === "/suggestions") title = "Suggestions du jour";
   else if (location.pathname.startsWith("/vuedetail"))
     title = slug || "Détails";
+  else if (location.pathname.startsWith("/vuemanga"))
+    title = "My Hero Academia";
 
   return (
     <div>
