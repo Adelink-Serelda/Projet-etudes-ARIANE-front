@@ -155,8 +155,28 @@
   padding: 15px;
 }
 
-.serie-item img {
+.serie-item-image {
+  position: relative;
+  display: inline-block;
+}
+
+.serie-item.serie-image {
   width: 100%;
+}
+
+.status-icon {
+  position: absolute;
+  top: -15px;
+  right: 5px;
+  width: 28px;
+  height: 28px;
+}
+.status-icon-pal {
+  position: absolute;
+  top: -15px;
+  right: 45px;
+  width: 28px;
+  height: 28px;
 }
 
 .serie-item h1 {

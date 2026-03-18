@@ -50,7 +50,10 @@ export default function Suggestions() {
         <p className="index-info">
           {totalSlides === 0 ? "0 / 0" : `${sliderIndex + 1} / ${totalSlides}`}
         </p>
-        <div className="suggestions-slider">
+        <Link
+          to={`/${mangas[sliderIndex]?.slug || ""}`}
+          className="suggestions-slider"
+        >
           <img
             src={mangas[sliderIndex]?.cover || "/img/img-1.jpg"}
             alt={mangas[sliderIndex]?.titre || "couv manga"}
@@ -58,7 +61,7 @@ export default function Suggestions() {
           />
           <p className="manga-titre">{mangas[sliderIndex]?.titre || ""}</p>
           <p className="manga-auteur">{mangas[sliderIndex]?.auteur || ""}</p>
-        </div>
+        </Link>
         <div className="navigation-buttons">
           <button
             onClick={() => toggleImage(-1)}

@@ -1,10 +1,25 @@
 .page-recherche {
-  margin: 10rem 3rem;
+  margin: 5rem 0 10rem 0;
+}
+
+.recherche-wrapper {
+  margin: 0 3rem;
+}
+
+.page-recherche h2 {
+  margin: 3rem 0;
+  color: var(--light-green-primary);
+}
+
+.search-bar input {
+  border: solid 1px var(--dark-green);
+  background-color: white;
 }
 
 .search-result {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
 }
 
@@ -28,7 +43,7 @@
 }
 
 .search-item p {
-  line-height: 0.5rem;
+  line-height: 1rem;
   margin: 0;
   color: var(--dark-green);
 }
@@ -40,22 +55,19 @@
 }
 
 @media (min-width: 576px) {
-  .search-bar,
-  .search-result {
-    margin-left: 90px;
+  .recherche-wrapper {
+    margin-left: 110px;
   }
 }
 
 @media (min-width: 768px) {
-  .search-bar,
-  .search-result {
-    margin-left: 130px;
+  .recherche-wrapper {
+    margin-left: 150px;
   }
 }
 
 @media (min-width: 992px) {
-  .search-bar,
-  .search-result {
-    margin-left: 190px;
+  .recherche-wrapper {
+    margin-left: 210px;
   }
 }

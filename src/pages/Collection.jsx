@@ -33,19 +33,19 @@ function Collection() {
         </Link>
       </div>
       <div className="bouton-filtre-wrapper">
-        <Link className="bouton-filtre">
+        <Link className="bouton-filtre physique">
           <i className="bi bi-book"></i>
           <p>Physique</p>
         </Link>
-        <Link className="bouton-filtre">
+        <Link className="bouton-filtre numerique">
           <i className="bi bi-book"></i>
           <p>Numérique</p>
         </Link>
-        <Link className="bouton-filtre">
+        <Link className="bouton-filtre pret">
           <i className="bi bi-book"></i>
           <p>Prêts</p>
         </Link>
-        <Link className="bouton-filtre">
+        <Link className="bouton-filtre completer">
           <i className="bi bi-book"></i>
           <p>Compléter</p>
         </Link>

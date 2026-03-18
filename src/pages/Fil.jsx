@@ -33,19 +33,19 @@ function Fil() {
         </Link>
       </div>
       <div className="bouton-filtre-wrapper">
-        <Link className="bouton-filtre">
+        <Link className="bouton-filtre pal">
           <i className="bi bi-book"></i>
           <p>PAL</p>
         </Link>
-        <Link className="bouton-filtre">
+        <Link className="bouton-filtre cours">
           <i className="bi bi-book"></i>
           <p>En cours</p>
         </Link>
-        <Link className="bouton-filtre">
+        <Link className="bouton-filtre lu">
           <i className="bi bi-book"></i>
           <p>Lu</p>
         </Link>
-        <Link className="bouton-filtre">
+        <Link className="bouton-filtre wishlist">
           <i className="bi bi-book"></i>
           <p>Wishlist</p>
         </Link>

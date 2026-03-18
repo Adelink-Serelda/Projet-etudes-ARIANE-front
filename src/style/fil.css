@@ -2,6 +2,15 @@
   margin: 5rem 0;
 }
 
+.bouton-filtre.pal {
+  background-color: var(--light-green-primary);
+  color: white;
+}
+
+.bouton-filtre.pal i {
+  color: white;
+}
+
 @media (min-width: 576px) {
   .fil {
     margin-top: 1rem;

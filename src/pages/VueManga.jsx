@@ -50,11 +50,27 @@ function VueManga() {
                 className="serie-item"
                 key={index}
               >
-                <img
-                  src={tome.image}
-                  alt={tome.titre}
-                  className="serie-image"
-                />
+                <div className="serie-item-image">
+                  <img
+                    src={tome.image}
+                    alt={tome.titre}
+                    className="serie-image"
+                  />
+                  {tome.statusCollection === "collection" && (
+                    <img
+                      src="/img/svg/check-circle-green.svg"
+                      alt="Dans ma collection"
+                      className="status-icon"
+                    />
+                  )}
+                  {tome.statusFil === "PAL" && (
+                    <img
+                      src="/img/svg/bookmark-check-red.svg"
+                      alt="Dans ma PAL"
+                      className="status-icon-pal"
+                    />
+                  )}
+                </div>
                 <h1>Tome {tome.numero}</h1>
                 <p>{tome.titre}</p>
               </Link>

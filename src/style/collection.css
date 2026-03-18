@@ -36,6 +36,15 @@
   padding: 0;
 }
 
+.bouton-filtre.physique {
+  background-color: var(--light-green-primary);
+  color: white;
+}
+
+.bouton-filtre.physique i {
+  color: white;
+}
+
 .collection-details {
   margin: 0 20px;
 }

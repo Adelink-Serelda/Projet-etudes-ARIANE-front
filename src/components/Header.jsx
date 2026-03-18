@@ -27,8 +27,8 @@ function Header() {
   else if (location.pathname === "/suggestions") title = "Suggestions du jour";
   else if (location.pathname.startsWith("/vuedetail"))
     title = slug || "Détails";
-  else if (location.pathname.startsWith("/vuemanga"))
-    title = "My Hero Academia";
+  else if (location.pathname.startsWith(`/${slug}`)) title = slug;
+  else if (location.pathname.startsWith(`/recherche`)) title = "Recherche";
 
   return (
     <div>
@@ -46,14 +46,14 @@ function Header() {
           <div className="titre-page">
             <p>{title}</p>
           </div>
-          <div className="recherche">
+          {/*  <div className="recherche">
             <i className="bi bi-search"></i>
             <input
               type="text"
               className="form-control"
               placeholder="Recherche"
             />
-          </div>
+          </div> */}
           <div className="burger">
             <button
               className="burger-btn"
